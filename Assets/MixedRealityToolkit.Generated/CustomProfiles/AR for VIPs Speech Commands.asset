@@ -58,3 +58,24 @@ MonoBehaviour:
       id: 0
       description: None
       axisConstraint: 0
+  - localizationKey: 
+    keyword: Hand Beacon On
+    keyCode: 259
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Hand Beacon Off
+    keyCode: 260
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0
+  - localizationKey: 
+    keyword: Read Text
+    keyCode: 261
+    action:
+      id: 0
+      description: None
+      axisConstraint: 0

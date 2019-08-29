@@ -70,4 +70,22 @@ public class ControlScript2 : MonoBehaviour
     }
 
     #endregion
+
+    #region **TEXT RECOGNITION**
+
+    public void ReadText()
+    {
+        //Capture image with camera
+
+
+        //Pass image to Image to Text
+
+
+        //Pass text to Text to Speech
+
+
+    }
+
+
+    #endregion
 }

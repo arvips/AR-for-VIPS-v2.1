@@ -7,13 +7,17 @@ public class ObstacleSonification : MonoBehaviour
     [Tooltip("Game object to use as obstacle beacon.")]
     public GameObject obstacleBeacon;
 
-    [Tooltip("Maximum distance to sonify obstacles.")]
+    public GameObject handBeacon;
+
+    [Tooltip("Maximum headDistance to sonify obstacles.")]
     public float maxDist = 5;
 
     public bool obstacleMode = false;
+    public bool handBeaconOn = false;
     private float detectionRadius = 0.05f;
 
-    public float distance;
+    public float headDistance;
+    public float handDistance;
 
     void Start()
     {
@@ -34,21 +38,28 @@ public class ObstacleSonification : MonoBehaviour
             RaycastHit hit;
             if (Physics.SphereCast(headPosition, detectionRadius, gazeDirection, out hit, maxDist)) {
                 obstacleBeacon.transform.position = hit.point;
-                distance = Vector3.Distance(headPosition, hit.point);
+                headDistance = Vector3.Distance(headPosition, hit.point);
                 //Debug.Log("Hit! Position = " + obstacleBeacon.transform.position);
             }
 
             else
             {
                 obstacleBeacon.transform.position = headPosition + gazeDirection * maxDist;
-                distance = maxDist;
+                headDistance = maxDist;
                 //Debug.Log("Miss. Position = " + obstacleBeacon.transform.position);
             }
 
-            //Change pitch based on distance
-            obstacleBeacon.GetComponent<AudioSource>().pitch = 2f - .15f * distance;
-            Debug.Log("Distance: " + distance);
+            //Change pitch based on headDistance
+            float distanceRatio = (Mathf.Pow(headDistance, 2) / Mathf.Pow(maxDist, 2));
+            obstacleBeacon.GetComponent<AudioSource>().pitch = 2f - 0.1f*Mathf.Round(distanceRatio*10f);
+            //Debug.Log("headDistance: " + headDistance);
             Debug.Log("Pitch: " + obstacleBeacon.GetComponent<AudioSource>().pitch);
+        }
+
+        //If hand beacon mode is on, place a beacon at the user's hand, whose audio qualities vary based on a raycast from the hand.
+        if (handBeaconOn)
+        {
+            //var handPosition = 
         }
     }
 
@@ -86,4 +97,40 @@ public class ObstacleSonification : MonoBehaviour
         //Play "Obstacles off" speech
         //insert code
     }
+
+    public void HandBeaconOn()
+    {
+        if (!handBeaconOn)
+        {
+            //Toggle on obstacle mode.
+            handBeaconOn = true;
+
+            //Activate obstacle beacon
+            handBeacon.SetActive(true);
+
+            Debug.Log("Hand Beacon on.");
+
+        }
+
+        //Play "Hand Beacon On" speech
+        //insert code
+    }
+
+    public void HandBeaconOff()
+    {
+        if (handBeaconOn)
+        {
+            handBeaconOn = false;
+
+            //Deactivate obstacle beacon
+            handBeacon.SetActive(false);
+
+            Debug.Log("Hand Beacon off.");
+
+        }
+
+        //Play "Hand Beacon off" speech
+        //insert code
+    }
 }
+

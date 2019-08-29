@@ -467,6 +467,40 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  - keyword: Hand Beacon On
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 959110098}
+          m_MethodName: HandBeaconOn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - keyword: Hand Beacon Off
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 959110098}
+          m_MethodName: HandBeaconOff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   persistentKeywords: 0
 --- !u!114 &959110098
 MonoBehaviour:
@@ -481,8 +515,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleBeacon: {fileID: 1921112935}
-  maxDist: 10
+  handBeacon: {fileID: 0}
+  maxDist: 5
   obstacleMode: 0
+  handBeaconOn: 0
+  headDistance: 0
+  handDistance: 0
 --- !u!1 &996444897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,7 +1191,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 84fee7db9d53cd144920c16a92a03c10, type: 3}
+      objectReference: {fileID: 8300000, guid: a57a6e090392f874584af31a8bfa2bdb, type: 3}
+    - target: {fileID: 1767373423287575189, guid: 49f5f24584c65e348b447246ce41c978,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49f5f24584c65e348b447246ce41c978, type: 3}
 --- !u!4 &3476487901277066285 stripped
