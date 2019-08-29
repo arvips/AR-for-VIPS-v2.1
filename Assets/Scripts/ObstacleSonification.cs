@@ -41,12 +41,14 @@ public class ObstacleSonification : MonoBehaviour
             else
             {
                 obstacleBeacon.transform.position = headPosition + gazeDirection * maxDist;
-                distance = Vector3.Distance(headPosition, hit.point);
+                distance = maxDist;
                 //Debug.Log("Miss. Position = " + obstacleBeacon.transform.position);
             }
 
             //Change pitch based on distance
-            obstacleBeacon.GetComponent<AudioSource>().pitch = 0.5 + (10f - distance)/5;
+            obstacleBeacon.GetComponent<AudioSource>().pitch = 2f - .15f * distance;
+            Debug.Log("Distance: " + distance);
+            Debug.Log("Pitch: " + obstacleBeacon.GetComponent<AudioSource>().pitch);
         }
     }
 
