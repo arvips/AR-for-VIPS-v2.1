@@ -12,6 +12,8 @@ public class ControlScript2 : MonoBehaviour
     public GameObject debugText;
     private string output = ""; //helps print text in UI
 
+    public GameObject magnifierObject;
+    public bool magnifierOn;
 
 
     void Start()
@@ -36,7 +38,7 @@ public class ControlScript2 : MonoBehaviour
 
     #endregion
 
-    #region HOLOLENS DEBUG UI
+    #region **HOLOLENS DEBUG UI**
 
     void HandleLog(string logString, string stackTrace, LogType type)
     {
@@ -86,6 +88,36 @@ public class ControlScript2 : MonoBehaviour
 
     }
 
+
+    #endregion
+
+    #region **MAGNIFIER**
+
+    public void MagnifierOn()
+    {
+        if (!magnifierOn)
+        {
+            magnifierOn = true;
+            magnifierObject.SetActive(true);
+            Debug.Log("Magnifier On.");
+
+            {
+                WebCamDevice[] devices = WebCamTexture.devices;
+                for (int i = 0; i < devices.Length; i++)
+                    Debug.Log(devices[i].name);
+            }
+        }
+    }
+
+    public void MagnifierOff()
+    {
+        if (magnifierOn)
+        {
+            magnifierOn = false;
+            magnifierObject.SetActive(false);
+            Debug.Log("Magnifier Off.");
+        }
+    }
 
     #endregion
 }

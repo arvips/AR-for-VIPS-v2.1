@@ -201,6 +201,18 @@ MonoBehaviour:
   ignoreAngleClamp: 0
   ignoreDistanceClamp: 0
   orientToReferenceDirection: 0
+--- !u!1 &303320941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5756588653708935276, guid: a7974527cf050b8419c294113089cda1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5756588653405654785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &303320942 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5756588653405654785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &367075334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugText: {fileID: 1327586364}
+  magnifierObject: {fileID: 303320941}
+  magnifierOn: 0
 --- !u!114 &959110097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +515,40 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  - keyword: Magnifier On
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 959110096}
+          m_MethodName: MagnifierOn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - keyword: Magnifier Off
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 959110096}
+          m_MethodName: MagnifierOff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   persistentKeywords: 0
 --- !u!114 &959110098
 MonoBehaviour:
@@ -517,6 +565,16 @@ MonoBehaviour:
   obstacleBeacon: {fileID: 1921112935}
   handBeacon: {fileID: 0}
   maxDist: 5
+  vertLimit: 1
+  audioClips:
+  - {fileID: 8300000, guid: 2d089a9c62b935440b55573d28f6f944, type: 3}
+  - {fileID: 8300000, guid: 7b4addc9104a5ef4aae76ab33a32520b, type: 3}
+  - {fileID: 8300000, guid: 2bc45435cb991eb4f943637f2d1c04fc, type: 3}
+  - {fileID: 8300000, guid: 359aa8e9ad2ee2f4d911f06d21f2ba8d, type: 3}
+  - {fileID: 8300000, guid: a455e024bad128e4aa5e0ba6ce2ff8ea, type: 3}
+  - {fileID: 8300000, guid: 0b17bea1bdec7bb4497b6699bd21c8e7, type: 3}
+  - {fileID: 8300000, guid: 43af2854d9303f6408aa6a214b9df44e, type: 3}
+  - {fileID: 8300000, guid: 074526b13231e414dae0f48fdc97ccb0, type: 3}
   obstacleMode: 0
   handBeaconOn: 0
   headDistance: 0
@@ -678,7 +736,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478217493}
   m_LocalRotation: {x: 0.30618626, y: 0.1767767, z: 0.1767767, w: 0.91855866}
-  m_LocalPosition: {x: 0, y: 0, z: 1.24}
+  m_LocalPosition: {x: -0.234, y: 0.757, z: 1.809}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1635668052}
@@ -841,6 +899,7 @@ Transform:
   - {fileID: 1478217494}
   - {fileID: 1475996719}
   - {fileID: 3476487901277066285}
+  - {fileID: 303320942}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1205,3 +1264,107 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3476487901277066284}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5756588653405654785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1635668052}
+    m_Modifications:
+    - target: {fileID: 5756588653708935276, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_Name
+      value: Magnifier
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935276, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.073
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935279, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935278, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: maxDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935278, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: smoothing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935278, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: maxViewDegrees
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935278, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: moveLerpTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935278, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: rotateLerpTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756588653708935278, guid: a7974527cf050b8419c294113089cda1,
+        type: 3}
+      propertyPath: minDistance
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7974527cf050b8419c294113089cda1, type: 3}
